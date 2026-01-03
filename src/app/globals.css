@@ -14,29 +14,50 @@
     @apply transition-colors duration-200;
   }
 
-  /* Custom scrollbar for webkit browsers */
+  /* Custom scrollbar for webkit browsers - shows on hover only */
   ::-webkit-scrollbar {
     @apply w-2;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-bg-soft rounded-full;
-    @apply dark:bg-dark-border;
+    @apply bg-transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-border-soft rounded-full hover:bg-text-muted;
-    @apply dark:bg-dark-text-muted/30 dark:hover:bg-dark-text-muted/50;
+    @apply bg-transparent rounded-full;
+    transition: background-color 0.2s ease;
   }
 
-  /* Firefox scrollbar */
+  /* Show scrollbar on hover */
+  *:hover::-webkit-scrollbar-thumb {
+    @apply bg-border-soft/60;
+  }
+
+  *:hover::-webkit-scrollbar-thumb:hover {
+    @apply bg-text-muted/60;
+  }
+
+  /* Dark mode scrollbar on hover */
+  .dark *:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.3);
+  }
+
+  .dark *:hover::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(148, 163, 184, 0.5);
+  }
+
+  /* Firefox scrollbar - auto hide */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #e2e8f0 #eef2ff;
+    scrollbar-color: transparent transparent;
   }
 
-  .dark * {
-    scrollbar-color: #94a3b8 #1e293b;
+  *:hover {
+    scrollbar-color: rgba(203, 213, 225, 0.6) transparent;
+  }
+
+  .dark *:hover {
+    scrollbar-color: rgba(148, 163, 184, 0.3) transparent;
   }
 }
 
