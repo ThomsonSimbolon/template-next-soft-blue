@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg-main text-text-body;
+  }
+
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-soft rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-soft rounded-full hover:bg-text-muted;
+  }
+}
+
+@layer components {
+  /* Focus ring utility for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+  }
+
+  /* Card base styles */
+  .card-base {
+    @apply bg-white rounded-xl border border-border-soft shadow-card;
+  }
+
+  /* Interactive card */
+  .card-interactive {
+    @apply card-base transition-shadow duration-200 hover:shadow-dropdown;
+  }
+}
+
+@layer utilities {
+  /* Safe area padding for mobile */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
