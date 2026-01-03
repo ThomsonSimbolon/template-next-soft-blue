@@ -110,8 +110,12 @@ export default function ProjectsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text-main">Projects</h1>
-          <p className="mt-1 text-text-muted">Manage and track your projects</p>
+          <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+            Projects
+          </h1>
+          <p className="mt-1 text-text-muted dark:text-dark-text-muted">
+            Manage and track your projects
+          </p>
         </div>
         <Button variant="primary" leftIcon={<PlusIcon className="w-5 h-5" />}>
           New Project
@@ -144,10 +148,12 @@ export default function ProjectsPage() {
         ].map((stat, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl border border-border-soft p-4 text-center"
+            className="bg-white dark:bg-dark-bg-card rounded-xl border border-border-soft dark:border-dark-border p-4 text-center"
           >
             <p className={`text-3xl font-bold ${stat.color}`}>{stat.value}</p>
-            <p className="text-sm text-text-muted">{stat.label}</p>
+            <p className="text-sm text-text-muted dark:text-dark-text-muted">
+              {stat.label}
+            </p>
           </div>
         ))}
       </div>
@@ -166,8 +172,8 @@ export default function ProjectsPage() {
                 </div>
                 <Dropdown
                   trigger={
-                    <button className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-bg-soft transition-colors">
-                      <EllipsisHorizontalIcon className="w-5 h-5 text-text-muted" />
+                    <button className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-bg-soft dark:hover:bg-dark-border transition-colors">
+                      <EllipsisHorizontalIcon className="w-5 h-5 text-text-muted dark:text-dark-text-muted" />
                     </button>
                   }
                   items={actionItems}
@@ -176,10 +182,10 @@ export default function ProjectsPage() {
               </div>
 
               {/* Content */}
-              <h3 className="font-semibold text-text-main mb-1">
+              <h3 className="font-semibold text-text-main dark:text-dark-text-main mb-1">
                 {project.name}
               </h3>
-              <p className="text-sm text-text-muted mb-4 line-clamp-2">
+              <p className="text-sm text-text-muted dark:text-dark-text-muted mb-4 line-clamp-2">
                 {project.description}
               </p>
 
@@ -191,12 +197,14 @@ export default function ProjectsPage() {
               {/* Progress */}
               <div className="mt-4">
                 <div className="flex items-center justify-between text-sm mb-1">
-                  <span className="text-text-muted">Progress</span>
-                  <span className="font-medium text-text-main">
+                  <span className="text-text-muted dark:text-dark-text-muted">
+                    Progress
+                  </span>
+                  <span className="font-medium text-text-main dark:text-dark-text-main">
                     {project.progress}%
                   </span>
                 </div>
-                <div className="w-full h-2 bg-bg-soft rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-bg-soft dark:bg-dark-border rounded-full overflow-hidden">
                   <div
                     className={`h-full rounded-full bg-gradient-to-r ${project.color}`}
                     style={{ width: `${project.progress}%` }}
@@ -205,12 +213,12 @@ export default function ProjectsPage() {
               </div>
 
               {/* Footer */}
-              <div className="flex items-center justify-between mt-4 pt-4 border-t border-border-soft">
-                <div className="flex items-center gap-1 text-sm text-text-muted">
+              <div className="flex items-center justify-between mt-4 pt-4 border-t border-border-soft dark:border-dark-border">
+                <div className="flex items-center gap-1 text-sm text-text-muted dark:text-dark-text-muted">
                   <UserGroupIcon className="w-4 h-4" />
                   <span>{project.team}</span>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-text-muted">
+                <div className="flex items-center gap-1 text-sm text-text-muted dark:text-dark-text-muted">
                   <CalendarIcon className="w-4 h-4" />
                   <span>{project.dueDate}</span>
                 </div>

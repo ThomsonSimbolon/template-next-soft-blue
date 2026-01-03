@@ -64,13 +64,13 @@ export default function AppLayout({ children }: AppLayoutProps) {
   // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
     return (
-      <div className="min-h-screen bg-bg-main">
+      <div className="min-h-screen bg-bg-main dark:bg-dark-bg-main">
         <div className="lg:ml-64 min-h-screen">
-          <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-border-soft h-16" />
+          <header className="sticky top-0 z-30 bg-white/80 dark:bg-dark-bg-surface/80 backdrop-blur-md border-b border-border-soft dark:border-dark-border h-16" />
           <main className="p-6">
             <div className="animate-pulse space-y-4">
-              <div className="h-8 bg-bg-soft rounded w-1/4" />
-              <div className="h-4 bg-bg-soft rounded w-1/2" />
+              <div className="h-8 bg-bg-soft dark:bg-dark-border rounded w-1/4" />
+              <div className="h-4 bg-bg-soft dark:bg-dark-border rounded w-1/2" />
             </div>
           </main>
         </div>
@@ -79,7 +79,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   }
 
   return (
-    <div className="min-h-screen bg-bg-main">
+    <div className="min-h-screen bg-bg-main dark:bg-dark-bg-main transition-colors duration-200">
       {/* Desktop Sidebar */}
       <Sidebar
         isCollapsed={isSidebarCollapsed}

@@ -7,6 +7,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
  *
  * Primary action button for authentication forms.
  * Supports loading state and full-width mode.
+ * Supports light and dark modes.
  */
 
 interface AuthButtonProps
@@ -31,6 +32,7 @@ export default function AuthButton({
     font-medium rounded-lg
     transition-all duration-200
     focus:outline-none focus:ring-2 focus:ring-offset-2
+    dark:focus:ring-offset-dark-bg-card
     disabled:opacity-50 disabled:cursor-not-allowed
     min-h-[44px]
   `;
@@ -38,18 +40,18 @@ export default function AuthButton({
   const variantStyles = {
     primary: `
       bg-primary text-white
-      hover:bg-primary-hover
+      hover:bg-primary-hover dark:hover:bg-dark-primary-hover
       focus:ring-primary
       active:bg-primary-hover
     `,
     secondary: `
-      bg-bg-soft text-text-body
-      hover:bg-border-soft
+      bg-bg-soft dark:bg-dark-border text-text-body dark:text-dark-text-body
+      hover:bg-border-soft dark:hover:bg-dark-text-muted/30
       focus:ring-primary
     `,
     link: `
-      bg-transparent text-primary
-      hover:text-primary-hover hover:underline
+      bg-transparent text-primary dark:text-dark-primary-hover
+      hover:text-primary-hover dark:hover:text-primary hover:underline
       focus:ring-primary
       min-h-0 p-0
     `,

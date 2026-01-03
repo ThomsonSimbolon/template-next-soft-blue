@@ -17,8 +17,10 @@ export default function AnalyticsPage() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-text-main">Analytics</h1>
-        <p className="mt-1 text-text-muted">
+        <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+          Analytics
+        </h1>
+        <p className="mt-1 text-text-muted dark:text-dark-text-muted">
           Track your performance and insights
         </p>
       </div>
@@ -58,11 +60,13 @@ export default function AnalyticsPage() {
       {/* Charts Placeholder */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card title="Traffic Overview" subtitle="Daily visitors over time">
-          <div className="h-64 bg-bg-soft rounded-lg flex items-center justify-center">
+          <div className="h-64 bg-bg-soft dark:bg-dark-border rounded-lg flex items-center justify-center">
             <div className="text-center">
-              <ChartBarIcon className="w-12 h-12 text-text-muted mx-auto mb-2" />
-              <p className="text-text-muted">Chart placeholder</p>
-              <p className="text-sm text-text-muted">
+              <ChartBarIcon className="w-12 h-12 text-text-muted dark:text-dark-text-muted mx-auto mb-2" />
+              <p className="text-text-muted dark:text-dark-text-muted">
+                Chart placeholder
+              </p>
+              <p className="text-sm text-text-muted dark:text-dark-text-muted">
                 Integrate your preferred chart library
               </p>
             </div>
@@ -73,11 +77,13 @@ export default function AnalyticsPage() {
           title="User Demographics"
           subtitle="Visitor distribution by region"
         >
-          <div className="h-64 bg-bg-soft rounded-lg flex items-center justify-center">
+          <div className="h-64 bg-bg-soft dark:bg-dark-border rounded-lg flex items-center justify-center">
             <div className="text-center">
-              <ChartBarIcon className="w-12 h-12 text-text-muted mx-auto mb-2" />
-              <p className="text-text-muted">Chart placeholder</p>
-              <p className="text-sm text-text-muted">
+              <ChartBarIcon className="w-12 h-12 text-text-muted dark:text-dark-text-muted mx-auto mb-2" />
+              <p className="text-text-muted dark:text-dark-text-muted">
+                Chart placeholder
+              </p>
+              <p className="text-sm text-text-muted dark:text-dark-text-muted">
                 Integrate your preferred chart library
               </p>
             </div>
@@ -97,16 +103,20 @@ export default function AnalyticsPage() {
           ].map((item, index) => (
             <div
               key={index}
-              className="flex items-center justify-between p-3 bg-bg-soft rounded-lg"
+              className="flex items-center justify-between p-3 bg-bg-soft dark:bg-dark-border rounded-lg"
             >
               <div className="flex items-center gap-3">
                 <span className="w-8 h-8 bg-primary/10 text-primary rounded-lg flex items-center justify-center text-sm font-semibold">
                   {index + 1}
                 </span>
-                <span className="font-medium text-text-main">{item.page}</span>
+                <span className="font-medium text-text-main dark:text-dark-text-main">
+                  {item.page}
+                </span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-text-body">{item.views} views</span>
+                <span className="text-text-body dark:text-dark-text-body">
+                  {item.views} views
+                </span>
                 <span
                   className={`text-sm font-medium ${
                     item.change.startsWith("+") ? "text-success" : "text-error"

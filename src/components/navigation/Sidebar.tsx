@@ -91,6 +91,7 @@ const bottomNavItems: NavItem[] = [
  *
  * Main navigation sidebar with collapsible functionality.
  * Fixed position on desktop with smooth transitions.
+ * Supports light and dark modes.
  */
 export default function Sidebar({
   isCollapsed,
@@ -102,8 +103,8 @@ export default function Sidebar({
       className={`
         hidden lg:flex flex-col
         fixed left-0 top-0 bottom-0
-        bg-white
-        border-r border-border-soft
+        bg-white dark:bg-dark-bg-card
+        border-r border-border-soft dark:border-dark-border
         z-40
         transition-all duration-300 ease-in-out
         ${isCollapsed ? "w-[72px]" : "w-64"}
@@ -113,7 +114,7 @@ export default function Sidebar({
       <div
         className={`
           flex items-center h-16
-          border-b border-border-soft
+          border-b border-border-soft dark:border-dark-border
           ${isCollapsed ? "justify-center px-3" : "px-6"}
         `}
       >
@@ -132,7 +133,7 @@ export default function Sidebar({
           </div>
           {/* Logo Text */}
           {!isCollapsed && (
-            <span className="font-bold text-lg text-text-main truncate">
+            <span className="font-bold text-lg text-text-main dark:text-dark-text-main truncate">
               AdminPanel
             </span>
           )}
@@ -154,7 +155,7 @@ export default function Sidebar({
       </nav>
 
       {/* Bottom Section */}
-      <div className="py-4 px-3 border-t border-border-soft">
+      <div className="py-4 px-3 border-t border-border-soft dark:border-dark-border">
         <div className="space-y-1">
           {bottomNavItems.map((item) => (
             <SidebarItem
@@ -174,8 +175,8 @@ export default function Sidebar({
             flex items-center
             min-h-[44px]
             rounded-lg
-            text-text-muted
-            hover:bg-bg-soft hover:text-text-body
+            text-text-muted dark:text-dark-text-muted
+            hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
             transition-colors duration-200
             ${isCollapsed ? "justify-center px-3" : "px-4 gap-3"}
           `}

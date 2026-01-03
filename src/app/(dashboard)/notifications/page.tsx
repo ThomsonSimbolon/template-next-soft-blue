@@ -118,8 +118,10 @@ export default function NotificationsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text-main">Notifications</h1>
-          <p className="mt-1 text-text-muted">
+          <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+            Notifications
+          </h1>
+          <p className="mt-1 text-text-muted dark:text-dark-text-muted">
             Stay updated with your latest alerts
           </p>
         </div>
@@ -144,7 +146,7 @@ export default function NotificationsPage() {
             ${
               filter === "all"
                 ? "bg-primary text-white"
-                : "bg-bg-soft text-text-body hover:bg-bg-soft/80"
+                : "bg-bg-soft dark:bg-dark-border text-text-body dark:text-dark-text-body hover:bg-bg-soft/80 dark:hover:bg-dark-border/80"
             }
           `}
         >
@@ -158,7 +160,7 @@ export default function NotificationsPage() {
             ${
               filter === "unread"
                 ? "bg-primary text-white"
-                : "bg-bg-soft text-text-body hover:bg-bg-soft/80"
+                : "bg-bg-soft dark:bg-dark-border text-text-body dark:text-dark-text-body hover:bg-bg-soft/80 dark:hover:bg-dark-border/80"
             }
           `}
         >
@@ -175,7 +177,7 @@ export default function NotificationsPage() {
             description="You're all caught up! Check back later for updates."
           />
         ) : (
-          <div className="divide-y divide-border-soft">
+          <div className="divide-y divide-border-soft dark:divide-dark-border">
             {filteredNotifications.map((notification) => (
               <div
                 key={notification.id}
@@ -194,13 +196,13 @@ export default function NotificationsPage() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-2">
                     <div>
-                      <h3 className="font-medium text-text-main flex items-center gap-2">
+                      <h3 className="font-medium text-text-main dark:text-dark-text-main flex items-center gap-2">
                         {notification.title}
                         {!notification.read && (
                           <span className="w-2 h-2 rounded-full bg-primary" />
                         )}
                       </h3>
-                      <p className="text-sm text-text-muted mt-1">
+                      <p className="text-sm text-text-muted dark:text-dark-text-muted mt-1">
                         {notification.message}
                       </p>
                     </div>
@@ -211,7 +213,7 @@ export default function NotificationsPage() {
                       {notification.type}
                     </Badge>
                   </div>
-                  <p className="text-xs text-text-muted mt-2">
+                  <p className="text-xs text-text-muted dark:text-dark-text-muted mt-2">
                     {formatTime(notification.createdAt)}
                   </p>
                 </div>

@@ -18,8 +18,10 @@ export default function SettingsPage() {
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold text-text-main">Settings</h1>
-        <p className="mt-1 text-text-muted">
+        <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+          Settings
+        </h1>
+        <p className="mt-1 text-text-muted dark:text-dark-text-muted">
           Manage your account and preferences
         </p>
       </div>
@@ -58,7 +60,7 @@ export default function SettingsPage() {
                   ${
                     item.active
                       ? "bg-primary text-white"
-                      : "text-text-body hover:bg-bg-soft"
+                      : "text-text-body dark:text-dark-text-body hover:bg-bg-soft dark:hover:bg-dark-border"
                   }
                 `}
               >
@@ -93,7 +95,7 @@ export default function SettingsPage() {
                   <Button variant="outline" size="sm">
                     Change Photo
                   </Button>
-                  <p className="mt-1 text-xs text-text-muted">
+                  <p className="mt-1 text-xs text-text-muted dark:text-dark-text-muted">
                     JPG, GIF or PNG. Max size of 2MB.
                   </p>
                 </div>
@@ -101,7 +103,7 @@ export default function SettingsPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-text-main mb-1">
+                  <label className="block text-sm font-medium text-text-main dark:text-dark-text-main mb-1">
                     First Name
                   </label>
                   <input
@@ -109,16 +111,16 @@ export default function SettingsPage() {
                     defaultValue="John"
                     className="
                       w-full px-4 py-2.5
-                      bg-bg-soft
-                      border border-border-soft
+                      bg-bg-soft dark:bg-dark-border
+                      border border-border-soft dark:border-dark-border
                       rounded-lg
-                      text-sm text-text-body
+                      text-sm text-text-body dark:text-dark-text-body
                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
                     "
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-text-main mb-1">
+                  <label className="block text-sm font-medium text-text-main dark:text-dark-text-main mb-1">
                     Last Name
                   </label>
                   <input
@@ -126,10 +128,10 @@ export default function SettingsPage() {
                     defaultValue="Doe"
                     className="
                       w-full px-4 py-2.5
-                      bg-bg-soft
-                      border border-border-soft
+                      bg-bg-soft dark:bg-dark-border
+                      border border-border-soft dark:border-dark-border
                       rounded-lg
-                      text-sm text-text-body
+                      text-sm text-text-body dark:text-dark-text-body
                       focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
                     "
                   />
@@ -137,7 +139,7 @@ export default function SettingsPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-text-main mb-1">
+                <label className="block text-sm font-medium text-text-main dark:text-dark-text-main mb-1">
                   Email Address
                 </label>
                 <input
@@ -145,17 +147,17 @@ export default function SettingsPage() {
                   defaultValue="john.doe@example.com"
                   className="
                     w-full px-4 py-2.5
-                    bg-bg-soft
-                    border border-border-soft
+                    bg-bg-soft dark:bg-dark-border
+                    border border-border-soft dark:border-dark-border
                     rounded-lg
-                    text-sm text-text-body
+                    text-sm text-text-body dark:text-dark-text-body
                     focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
                   "
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-text-main mb-1">
+                <label className="block text-sm font-medium text-text-main dark:text-dark-text-main mb-1">
                   Bio
                 </label>
                 <textarea
@@ -163,17 +165,17 @@ export default function SettingsPage() {
                   defaultValue="Senior Software Engineer with 10+ years of experience."
                   className="
                     w-full px-4 py-2.5
-                    bg-bg-soft
-                    border border-border-soft
+                    bg-bg-soft dark:bg-dark-border
+                    border border-border-soft dark:border-dark-border
                     rounded-lg
-                    text-sm text-text-body
+                    text-sm text-text-body dark:text-dark-text-body
                     resize-none
                     focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
                   "
                 />
               </div>
 
-              <div className="flex justify-end gap-3 pt-4 border-t border-border-soft">
+              <div className="flex justify-end gap-3 pt-4 border-t border-border-soft dark:border-dark-border">
                 <Button variant="ghost">Cancel</Button>
                 <Button variant="primary">Save Changes</Button>
               </div>
@@ -210,11 +212,13 @@ export default function SettingsPage() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center justify-between py-3 border-b border-border-soft last:border-0"
+                  className="flex items-center justify-between py-3 border-b border-border-soft dark:border-dark-border last:border-0"
                 >
                   <div>
-                    <p className="font-medium text-text-main">{item.label}</p>
-                    <p className="text-sm text-text-muted">
+                    <p className="font-medium text-text-main dark:text-dark-text-main">
+                      {item.label}
+                    </p>
+                    <p className="text-sm text-text-muted dark:text-dark-text-muted">
                       {item.description}
                     </p>
                   </div>
@@ -222,7 +226,11 @@ export default function SettingsPage() {
                     className={`
                       relative w-11 h-6 rounded-full
                       transition-colors duration-200
-                      ${item.enabled ? "bg-primary" : "bg-border-soft"}
+                      ${
+                        item.enabled
+                          ? "bg-primary"
+                          : "bg-border-soft dark:bg-dark-border"
+                      }
                     `}
                   >
                     <span

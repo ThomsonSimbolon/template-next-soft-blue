@@ -8,6 +8,7 @@ import type { DropdownProps } from "@/types";
  *
  * A customizable dropdown menu with keyboard navigation support.
  * Handles click-outside to close automatically.
+ * Supports light and dark modes.
  */
 export default function Dropdown({
   trigger,
@@ -66,9 +67,9 @@ export default function Dropdown({
           className={`
             absolute z-50 mt-2
             min-w-[200px]
-            bg-white rounded-lg
-            border border-border-soft
-            shadow-dropdown
+            bg-white dark:bg-dark-bg-card rounded-lg
+            border border-border-soft dark:border-dark-border
+            shadow-dropdown dark:shadow-none
             py-1
             animate-fade-in
             ${align === "right" ? "right-0" : "left-0"}
@@ -80,7 +81,7 @@ export default function Dropdown({
               return (
                 <div
                   key={item.id}
-                  className="my-1 border-t border-border-soft"
+                  className="my-1 border-t border-border-soft dark:border-dark-border"
                 />
               );
             }
@@ -100,8 +101,8 @@ export default function Dropdown({
                   transition-colors duration-150
                   ${
                     item.danger
-                      ? "text-error hover:bg-error/5"
-                      : "text-text-body hover:bg-bg-soft"
+                      ? "text-error hover:bg-error/5 dark:hover:bg-error/10"
+                      : "text-text-body dark:text-dark-text-body hover:bg-bg-soft dark:hover:bg-dark-border"
                   }
                 `}
                 role="menuitem"

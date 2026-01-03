@@ -65,7 +65,7 @@ export default function ForgotPasswordPage() {
             <div
               className="
                 w-16 h-16
-                bg-success/10
+                bg-success/10 dark:bg-success/20
                 rounded-full
                 flex items-center justify-center
               "
@@ -75,14 +75,16 @@ export default function ForgotPasswordPage() {
           </div>
 
           {/* Success Message */}
-          <p className="text-text-body mb-6">
+          <p className="text-text-body dark:text-dark-text-body mb-6">
             We&apos;ve sent a password reset link to{" "}
-            <span className="font-medium text-text-main">{email}</span>. Please
-            check your inbox and follow the instructions.
+            <span className="font-medium text-text-main dark:text-dark-text-main">
+              {email}
+            </span>
+            . Please check your inbox and follow the instructions.
           </p>
 
           {/* Hint */}
-          <p className="text-sm text-text-muted mb-8">
+          <p className="text-sm text-text-muted dark:text-dark-text-muted mb-8">
             Didn&apos;t receive the email? Check your spam folder or{" "}
             <button
               type="button"
@@ -90,7 +92,7 @@ export default function ForgotPasswordPage() {
                 setIsSubmitted(false);
                 setEmail("");
               }}
-              className="text-primary hover:text-primary-hover hover:underline"
+              className="text-primary dark:text-dark-primary-hover hover:text-primary-hover dark:hover:text-primary hover:underline"
             >
               try again
             </button>
@@ -132,7 +134,7 @@ export default function ForgotPasswordPage() {
         />
 
         {/* Info Message */}
-        <p className="text-sm text-text-muted">
+        <p className="text-sm text-text-muted dark:text-dark-text-muted">
           Enter the email address associated with your account and we&apos;ll
           send you a link to reset your password.
         </p>
@@ -147,8 +149,8 @@ export default function ForgotPasswordPage() {
           href="/login"
           className="
             inline-flex items-center gap-2
-            text-sm text-text-muted
-            hover:text-text-body
+            text-sm text-text-muted dark:text-dark-text-muted
+            hover:text-text-body dark:hover:text-dark-text-body
             transition-colors duration-150
           "
         >

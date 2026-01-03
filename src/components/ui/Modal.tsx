@@ -9,6 +9,7 @@ import type { ModalProps, Size } from "@/types";
  *
  * An accessible modal dialog with backdrop overlay.
  * Handles focus trap and keyboard navigation.
+ * Supports light and dark modes.
  */
 
 const sizeStyles: Record<Size, string> = {
@@ -55,7 +56,7 @@ export default function Modal({
     <div className="fixed inset-0 z-50 overflow-y-auto">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 transition-opacity animate-fade-in"
+        className="fixed inset-0 bg-black/50 dark:bg-black/70 transition-opacity animate-fade-in"
         onClick={closeOnOverlayClick ? onClose : undefined}
         aria-hidden="true"
       />
@@ -65,8 +66,9 @@ export default function Modal({
         <div
           className={`
             relative w-full ${sizeStyles[size]}
-            bg-white rounded-xl
-            shadow-modal
+            bg-white dark:bg-dark-bg-card rounded-xl
+            shadow-modal dark:shadow-none
+            border dark:border-dark-border
             animate-slide-up
           `}
           role="dialog"
@@ -81,13 +83,13 @@ export default function Modal({
                   {title && (
                     <h2
                       id="modal-title"
-                      className="text-lg font-semibold text-text-main"
+                      className="text-lg font-semibold text-text-main dark:text-dark-text-main"
                     >
                       {title}
                     </h2>
                   )}
                   {description && (
-                    <p className="mt-1 text-sm text-text-muted">
+                    <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted">
                       {description}
                     </p>
                   )}
@@ -99,8 +101,8 @@ export default function Modal({
                     w-10 h-10
                     flex items-center justify-center
                     rounded-lg
-                    text-text-muted
-                    hover:bg-bg-soft hover:text-text-body
+                    text-text-muted dark:text-dark-text-muted
+                    hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
                     transition-colors duration-150
                   "
                   aria-label="Close modal"
@@ -120,8 +122,8 @@ export default function Modal({
                 w-10 h-10
                 flex items-center justify-center
                 rounded-lg
-                text-text-muted
-                hover:bg-bg-soft hover:text-text-body
+                text-text-muted dark:text-dark-text-muted
+                hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
                 transition-colors duration-150
               "
               aria-label="Close modal"
@@ -138,8 +140,8 @@ export default function Modal({
             <div
               className="
                 px-6 py-4
-                border-t border-border-soft
-                bg-bg-soft/50 rounded-b-xl
+                border-t border-border-soft dark:border-dark-border
+                bg-bg-soft/50 dark:bg-dark-border/50 rounded-b-xl
                 flex items-center justify-end gap-3
               "
             >

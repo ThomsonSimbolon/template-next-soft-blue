@@ -6,6 +6,7 @@ import EmptyState from "./EmptyState";
  *
  * A flexible data table with support for custom cell renderers.
  * Includes loading and empty states.
+ * Supports light and dark modes.
  */
 
 // Get nested object value by key path (e.g., "user.name")
@@ -30,23 +31,23 @@ export default function Table<T extends { id?: string | number }>({
   if (loading) {
     return (
       <div
-        className={`overflow-hidden rounded-xl border border-border-soft ${className}`}
+        className={`overflow-hidden rounded-xl border border-border-soft dark:border-dark-border ${className}`}
       >
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-border-soft">
-            <thead className="bg-bg-soft">
+          <table className="min-w-full divide-y divide-border-soft dark:divide-dark-border">
+            <thead className="bg-bg-soft dark:bg-dark-border">
               <tr>
                 {columns.map((column) => (
                   <th
                     key={String(column.key)}
-                    className="px-6 py-3 text-left text-xs font-semibold text-text-muted uppercase tracking-wider"
+                    className="px-6 py-3 text-left text-xs font-semibold text-text-muted dark:text-dark-text-muted uppercase tracking-wider"
                   >
                     {column.header}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-border-soft">
+            <tbody className="bg-white dark:bg-dark-bg-card divide-y divide-border-soft dark:divide-dark-border">
               {[...Array(5)].map((_, index) => (
                 <tr key={index}>
                   {columns.map((column) => (
@@ -54,7 +55,7 @@ export default function Table<T extends { id?: string | number }>({
                       key={String(column.key)}
                       className="px-6 py-4 whitespace-nowrap"
                     >
-                      <div className="h-4 bg-bg-soft rounded animate-pulse" />
+                      <div className="h-4 bg-bg-soft dark:bg-dark-border rounded animate-pulse" />
                     </td>
                   ))}
                 </tr>
@@ -70,7 +71,7 @@ export default function Table<T extends { id?: string | number }>({
   if (!data || data.length === 0) {
     return (
       <div
-        className={`overflow-hidden rounded-xl border border-border-soft bg-white ${className}`}
+        className={`overflow-hidden rounded-xl border border-border-soft dark:border-dark-border bg-white dark:bg-dark-bg-card ${className}`}
       >
         <EmptyState title={emptyMessage} />
       </div>
@@ -85,18 +86,18 @@ export default function Table<T extends { id?: string | number }>({
 
   return (
     <div
-      className={`overflow-hidden rounded-xl border border-border-soft ${className}`}
+      className={`overflow-hidden rounded-xl border border-border-soft dark:border-dark-border ${className}`}
     >
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-border-soft">
-          <thead className="bg-bg-soft">
+        <table className="min-w-full divide-y divide-border-soft dark:divide-dark-border">
+          <thead className="bg-bg-soft dark:bg-dark-border">
             <tr>
               {columns.map((column) => (
                 <th
                   key={String(column.key)}
                   className={`
                     px-6 py-3
-                    text-xs font-semibold text-text-muted uppercase tracking-wider
+                    text-xs font-semibold text-text-muted dark:text-dark-text-muted uppercase tracking-wider
                     ${alignmentClasses[column.align || "left"]}
                     ${column.width || ""}
                   `}
@@ -106,14 +107,18 @@ export default function Table<T extends { id?: string | number }>({
               ))}
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-border-soft">
+          <tbody className="bg-white dark:bg-dark-bg-card divide-y divide-border-soft dark:divide-dark-border">
             {data.map((row, rowIndex) => (
               <tr
                 key={row.id ?? rowIndex}
                 onClick={() => onRowClick?.(row, rowIndex)}
                 className={`
                   transition-colors duration-150
-                  ${onRowClick ? "cursor-pointer hover:bg-bg-soft/50" : ""}
+                  ${
+                    onRowClick
+                      ? "cursor-pointer hover:bg-bg-soft/50 dark:hover:bg-dark-border/50"
+                      : ""
+                  }
                 `}
               >
                 {columns.map((column: TableColumn<T>) => {
@@ -123,7 +128,7 @@ export default function Table<T extends { id?: string | number }>({
                     <td
                       key={String(column.key)}
                       className={`
-                        px-6 py-4 whitespace-nowrap text-sm text-text-body
+                        px-6 py-4 whitespace-nowrap text-sm text-text-body dark:text-dark-text-body
                         ${alignmentClasses[column.align || "left"]}
                       `}
                     >

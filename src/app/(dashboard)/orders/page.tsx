@@ -127,8 +127,12 @@ export default function OrdersPage() {
       header: "Customer",
       render: (_, row) => (
         <div>
-          <p className="font-medium text-text-main">{row.customer}</p>
-          <p className="text-sm text-text-muted">{row.email}</p>
+          <p className="font-medium text-text-main dark:text-dark-text-main">
+            {row.customer}
+          </p>
+          <p className="text-sm text-text-muted dark:text-dark-text-muted">
+            {row.email}
+          </p>
         </div>
       ),
     },
@@ -137,7 +141,9 @@ export default function OrdersPage() {
       header: "Items",
       align: "center",
       render: (value) => (
-        <span className="text-text-body">{String(value)}</span>
+        <span className="text-text-body dark:text-dark-text-body">
+          {String(value)}
+        </span>
       ),
     },
     {
@@ -145,7 +151,7 @@ export default function OrdersPage() {
       header: "Total",
       align: "right",
       render: (value) => (
-        <span className="font-semibold text-text-main">
+        <span className="font-semibold text-text-main dark:text-dark-text-main">
           ${Number(value).toFixed(2)}
         </span>
       ),
@@ -166,7 +172,9 @@ export default function OrdersPage() {
       key: "date",
       header: "Date",
       render: (value) => (
-        <span className="text-sm text-text-muted">{String(value)}</span>
+        <span className="text-sm text-text-muted dark:text-dark-text-muted">
+          {String(value)}
+        </span>
       ),
     },
   ];
@@ -176,8 +184,10 @@ export default function OrdersPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text-main">Orders</h1>
-          <p className="mt-1 text-text-muted">
+          <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+            Orders
+          </h1>
+          <p className="mt-1 text-text-muted dark:text-dark-text-muted">
             Manage and track customer orders
           </p>
         </div>

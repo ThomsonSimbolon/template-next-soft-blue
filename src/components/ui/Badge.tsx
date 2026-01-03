@@ -5,14 +5,16 @@ import type { BadgeProps, Status, Size } from "@/types";
  *
  * A small status indicator for labeling items.
  * Server component - no client-side JavaScript needed.
+ * Supports light and dark modes.
  */
 
 const statusStyles: Record<Status, string> = {
-  success: "bg-success/10 text-success",
-  warning: "bg-warning/10 text-warning",
-  error: "bg-error/10 text-error",
-  info: "bg-primary/10 text-primary",
-  default: "bg-bg-soft text-text-muted",
+  success: "bg-success/10 dark:bg-success/20 text-success",
+  warning: "bg-warning/10 dark:bg-warning/20 text-warning",
+  error: "bg-error/10 dark:bg-error/20 text-error",
+  info: "bg-primary/10 dark:bg-primary/20 text-primary dark:text-dark-primary-hover",
+  default:
+    "bg-bg-soft dark:bg-dark-border text-text-muted dark:text-dark-text-muted",
 };
 
 const sizeStyles: Record<Size, string> = {
@@ -45,8 +47,8 @@ export default function Badge({
             ${status === "success" && "bg-success"}
             ${status === "warning" && "bg-warning"}
             ${status === "error" && "bg-error"}
-            ${status === "info" && "bg-primary"}
-            ${status === "default" && "bg-text-muted"}
+            ${status === "info" && "bg-primary dark:bg-dark-primary-hover"}
+            ${status === "default" && "bg-text-muted dark:bg-dark-text-muted"}
           `}
         />
       )}

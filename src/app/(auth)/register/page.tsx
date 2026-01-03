@@ -172,14 +172,14 @@ export default function RegisterPage() {
                       ${
                         level <= passwordStrength.score
                           ? passwordStrength.color
-                          : "bg-border-soft"
+                          : "bg-border-soft dark:bg-dark-border"
                       }
                     `}
                   />
                 ))}
               </div>
               {/* Strength Label */}
-              <p className="text-xs text-text-muted">
+              <p className="text-xs text-text-muted dark:text-dark-text-muted">
                 Password strength:{" "}
                 <span
                   className={`font-medium ${
@@ -188,7 +188,7 @@ export default function RegisterPage() {
                       : passwordStrength.score <= 2
                       ? "text-warning"
                       : passwordStrength.score <= 3
-                      ? "text-primary"
+                      ? "text-primary dark:text-dark-primary-hover"
                       : "text-success"
                   }`}
                 >
@@ -213,18 +213,18 @@ export default function RegisterPage() {
         />
 
         {/* Terms & Conditions */}
-        <p className="text-sm text-text-muted">
+        <p className="text-sm text-text-muted dark:text-dark-text-muted">
           By creating an account, you agree to our{" "}
           <Link
             href="#"
-            className="text-primary hover:text-primary-hover hover:underline"
+            className="text-primary dark:text-dark-primary-hover hover:text-primary-hover dark:hover:text-primary hover:underline"
           >
             Terms of Service
           </Link>{" "}
           and{" "}
           <Link
             href="#"
-            className="text-primary hover:text-primary-hover hover:underline"
+            className="text-primary dark:text-dark-primary-hover hover:text-primary-hover dark:hover:text-primary hover:underline"
           >
             Privacy Policy
           </Link>
@@ -238,10 +238,10 @@ export default function RegisterPage() {
       {/* Divider */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-border-soft" />
+          <div className="w-full border-t border-border-soft dark:border-dark-border" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-4 bg-white text-text-muted">
+          <span className="px-4 bg-white dark:bg-dark-bg-card text-text-muted dark:text-dark-text-muted">
             Already have an account?
           </span>
         </div>

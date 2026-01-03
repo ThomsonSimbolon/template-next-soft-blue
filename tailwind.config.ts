@@ -6,9 +6,14 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
+        // ============================================
+        // LIGHT MODE COLORS
+        // ============================================
+
         // Backgrounds
         "bg-main": "#F8FAFF",
         "bg-soft": "#EEF2FF",
@@ -33,6 +38,29 @@ const config: Config = {
         success: "#22C55E",
         warning: "#F59E0B",
         error: "#EF4444",
+
+        // ============================================
+        // DARK MODE COLORS
+        // ============================================
+
+        // Dark Backgrounds
+        "dark-bg-main": "#0B1220",
+        "dark-bg-surface": "#111827",
+        "dark-bg-card": "#0F172A",
+
+        // Dark Brand (same hue, adjusted luminance)
+        "dark-primary": "#3B82F6",
+        "dark-primary-hover": "#60A5FA",
+        "dark-secondary": "#6366F1",
+        "dark-accent": "#8B5CF6",
+
+        // Dark Text
+        "dark-text-main": "#F8FAFC",
+        "dark-text-body": "#CBD5E1",
+        "dark-text-muted": "#94A3B8",
+
+        // Dark Border
+        "dark-border": "#1E293B",
       },
       fontFamily: {
         sans: [

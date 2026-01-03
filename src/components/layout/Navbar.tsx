@@ -11,13 +11,15 @@ import {
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { Dropdown } from "@/components/ui";
+import { ThemeToggle } from "@/components/theme";
 import type { NavbarProps, DropdownItem } from "@/types";
 
 /**
  * Navbar Component
  *
- * Top navigation bar with search, notifications, and user menu.
+ * Top navigation bar with search, notifications, theme toggle, and user menu.
  * Fixed position with proper spacing based on sidebar state.
+ * Supports light and dark modes.
  */
 export default function Navbar({ onMenuClick }: NavbarProps) {
   const [searchQuery, setSearchQuery] = useState("");
@@ -54,8 +56,8 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
     <header
       className="
         sticky top-0 z-30
-        bg-white/80 backdrop-blur-md
-        border-b border-border-soft
+        bg-white/80 dark:bg-dark-bg-surface/80 backdrop-blur-md
+        border-b border-border-soft dark:border-dark-border
       "
     >
       <div className="flex items-center justify-between h-16 px-4 lg:px-6">
@@ -69,8 +71,8 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               w-10 h-10
               flex items-center justify-center
               rounded-lg
-              text-text-muted
-              hover:bg-bg-soft hover:text-text-body
+              text-text-muted dark:text-dark-text-muted
+              hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
               transition-colors duration-200
             "
             aria-label="Open menu"
@@ -84,7 +86,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               <MagnifyingGlassIcon
                 className="
                   absolute left-3 top-1/2 -translate-y-1/2
-                  w-5 h-5 text-text-muted
+                  w-5 h-5 text-text-muted dark:text-dark-text-muted
                 "
               />
               <input
@@ -95,12 +97,13 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
                 className="
                   w-64 lg:w-80
                   pl-10 pr-4 py-2
-                  bg-bg-soft
+                  bg-bg-soft dark:bg-dark-border
                   border border-transparent
                   rounded-lg
-                  text-sm text-text-body
-                  placeholder:text-text-muted
+                  text-sm text-text-body dark:text-dark-text-body
+                  placeholder:text-text-muted dark:placeholder:text-dark-text-muted
                   focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
+                  dark:focus:border-dark-primary-hover dark:focus:ring-dark-primary-hover
                   transition-colors duration-200
                 "
               />
@@ -117,14 +120,17 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               w-10 h-10
               flex items-center justify-center
               rounded-lg
-              text-text-muted
-              hover:bg-bg-soft hover:text-text-body
+              text-text-muted dark:text-dark-text-muted
+              hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
               transition-colors duration-200
             "
             aria-label="Search"
           >
             <MagnifyingGlassIcon className="w-5 h-5" />
           </button>
+
+          {/* Theme Toggle */}
+          <ThemeToggle />
 
           {/* Notifications */}
           <button
@@ -133,8 +139,8 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               w-10 h-10
               flex items-center justify-center
               rounded-lg
-              text-text-muted
-              hover:bg-bg-soft hover:text-text-body
+              text-text-muted dark:text-dark-text-muted
+              hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
               transition-colors duration-200
             "
             aria-label="Notifications"
@@ -159,7 +165,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
                   flex items-center gap-2
                   h-10 pl-1 pr-2
                   rounded-lg
-                  hover:bg-bg-soft
+                  hover:bg-bg-soft dark:hover:bg-dark-border
                   transition-colors duration-200
                 "
               >
@@ -176,10 +182,10 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
                   JD
                 </div>
                 {/* Name - hidden on mobile */}
-                <span className="hidden md:block text-sm font-medium text-text-main">
+                <span className="hidden md:block text-sm font-medium text-text-main dark:text-dark-text-main">
                   John Doe
                 </span>
-                <ChevronDownIcon className="hidden md:block w-4 h-4 text-text-muted" />
+                <ChevronDownIcon className="hidden md:block w-4 h-4 text-text-muted dark:text-dark-text-muted" />
               </button>
             }
             items={userMenuItems}

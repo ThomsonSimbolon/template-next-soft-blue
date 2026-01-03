@@ -8,6 +8,7 @@ import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
  *
  * A styled input component for authentication forms.
  * Supports password visibility toggle and icon prefixes.
+ * Supports light and dark modes.
  */
 
 interface AuthInputProps
@@ -29,7 +30,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
         {/* Label */}
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-text-main"
+          className="block text-sm font-medium text-text-main dark:text-dark-text-main"
         >
           {label}
         </label>
@@ -38,7 +39,7 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
         <div className="relative">
           {/* Prefix Icon */}
           {icon && (
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted dark:text-dark-text-muted">
               {icon}
             </span>
           )}
@@ -53,16 +54,16 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
               ${icon ? "pl-10" : "pl-4"}
               ${isPassword ? "pr-10" : "pr-4"}
               py-2.5
-              bg-white
+              bg-white dark:bg-dark-bg-surface
               border rounded-lg
-              text-sm text-text-main
-              placeholder:text-text-muted
+              text-sm text-text-main dark:text-dark-text-main
+              placeholder:text-text-muted dark:placeholder:text-dark-text-muted
               transition-all duration-200
-              focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary
+              focus:outline-none focus:ring-2 focus:ring-primary/20 dark:focus:ring-primary/30 focus:border-primary dark:focus:border-dark-primary-hover
               ${
                 error
                   ? "border-error focus:ring-error/20 focus:border-error"
-                  : "border-border-soft hover:border-text-muted/50"
+                  : "border-border-soft dark:border-dark-border hover:border-text-muted/50 dark:hover:border-dark-text-muted/50"
               }
             `}
             {...props}
@@ -76,8 +77,8 @@ const AuthInput = forwardRef<HTMLInputElement, AuthInputProps>(
               className="
                 absolute right-3 top-1/2 -translate-y-1/2
                 w-5 h-5
-                text-text-muted
-                hover:text-text-body
+                text-text-muted dark:text-dark-text-muted
+                hover:text-text-body dark:hover:text-dark-text-body
                 transition-colors duration-150
                 focus:outline-none
               "

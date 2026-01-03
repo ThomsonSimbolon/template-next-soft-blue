@@ -126,7 +126,7 @@ export default function MobileSidebar({
     <div className="fixed inset-0 z-50 lg:hidden">
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 animate-fade-in"
+        className="fixed inset-0 bg-black/50 dark:bg-black/70 animate-fade-in"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -136,7 +136,7 @@ export default function MobileSidebar({
         className="
           fixed left-0 top-0 bottom-0
           w-72
-          bg-white
+          bg-white dark:bg-dark-bg-card
           shadow-modal
           animate-slide-in
           flex flex-col
@@ -147,7 +147,7 @@ export default function MobileSidebar({
           className="
             flex items-center justify-between
             h-16 px-4
-            border-b border-border-soft
+            border-b border-border-soft dark:border-dark-border
           "
         >
           <Link href="/" className="flex items-center gap-3" onClick={onClose}>
@@ -162,7 +162,9 @@ export default function MobileSidebar({
             >
               A
             </div>
-            <span className="font-bold text-lg text-text-main">AdminPanel</span>
+            <span className="font-bold text-lg text-text-main dark:text-dark-text-main">
+              AdminPanel
+            </span>
           </Link>
 
           <button
@@ -171,8 +173,8 @@ export default function MobileSidebar({
               w-10 h-10
               flex items-center justify-center
               rounded-lg
-              text-text-muted
-              hover:bg-bg-soft hover:text-text-body
+              text-text-muted dark:text-dark-text-muted
+              hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
               transition-colors duration-200
             "
             aria-label="Close menu"
@@ -197,7 +199,7 @@ export default function MobileSidebar({
         </nav>
 
         {/* Bottom Section */}
-        <div className="py-4 px-3 border-t border-border-soft pb-safe">
+        <div className="py-4 px-3 border-t border-border-soft dark:border-dark-border pb-safe">
           <div className="space-y-1">
             {bottomNavItems.map((item) => (
               <SidebarItem

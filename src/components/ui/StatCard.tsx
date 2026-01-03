@@ -6,21 +6,22 @@ import type { StatCardProps } from "@/types";
  *
  * Displays a key metric with optional change indicator and icon.
  * Perfect for dashboard KPIs and statistics.
+ * Supports light and dark modes.
  */
 export default function StatCard({
   title,
   value,
   change,
   icon,
-  iconBackground = "bg-primary/10",
+  iconBackground = "bg-primary/10 dark:bg-primary/20",
   className = "",
 }: StatCardProps) {
   return (
     <div
       className={`
-        bg-white rounded-xl
-        border border-border-soft
-        shadow-card
+        bg-white dark:bg-dark-bg-card rounded-xl
+        border border-border-soft dark:border-dark-border
+        shadow-card dark:shadow-none
         p-6
         ${className}
       `.trim()}
@@ -28,10 +29,12 @@ export default function StatCard({
       <div className="flex items-start justify-between">
         {/* Content */}
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-medium text-text-muted truncate">
+          <p className="text-sm font-medium text-text-muted dark:text-dark-text-muted truncate">
             {title}
           </p>
-          <p className="mt-2 text-2xl font-bold text-text-main">{value}</p>
+          <p className="mt-2 text-2xl font-bold text-text-main dark:text-dark-text-main">
+            {value}
+          </p>
 
           {/* Change Indicator */}
           {change && (
@@ -48,7 +51,9 @@ export default function StatCard({
               >
                 {Math.abs(change.value)}%
               </span>
-              <span className="text-sm text-text-muted">vs last period</span>
+              <span className="text-sm text-text-muted dark:text-dark-text-muted">
+                vs last period
+              </span>
             </div>
           )}
         </div>
@@ -64,7 +69,9 @@ export default function StatCard({
               ${iconBackground}
             `}
           >
-            <div className="w-6 h-6 text-primary">{icon}</div>
+            <div className="w-6 h-6 text-primary dark:text-dark-primary-hover">
+              {icon}
+            </div>
           </div>
         )}
       </div>

@@ -111,7 +111,7 @@ export default function TransactionsPage() {
       key: "id",
       header: "Transaction ID",
       render: (value) => (
-        <span className="font-mono text-sm text-text-muted">
+        <span className="font-mono text-sm text-text-muted dark:text-dark-text-muted">
           {String(value)}
         </span>
       ),
@@ -121,12 +121,16 @@ export default function TransactionsPage() {
       header: "Asset",
       render: (value, row) => (
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-bg-soft rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-bg-soft dark:bg-dark-border rounded-lg flex items-center justify-center">
             {currencyIcons[String(value)]}
           </div>
           <div>
-            <p className="font-medium text-text-main">{String(value)}</p>
-            <p className="text-xs text-text-muted">{row.description}</p>
+            <p className="font-medium text-text-main dark:text-dark-text-main">
+              {String(value)}
+            </p>
+            <p className="text-xs text-text-muted dark:text-dark-text-muted">
+              {row.description}
+            </p>
           </div>
         </div>
       ),
@@ -137,7 +141,7 @@ export default function TransactionsPage() {
       render: (value) => (
         <div className="flex items-center gap-2">
           {typeIcons[String(value)]}
-          <span className="text-sm text-text-body capitalize">
+          <span className="text-sm text-text-body dark:text-dark-text-body capitalize">
             {String(value)}
           </span>
         </div>
@@ -154,7 +158,7 @@ export default function TransactionsPage() {
               ? "text-success"
               : row.type === "withdrawal"
               ? "text-error"
-              : "text-text-main"
+              : "text-text-main dark:text-dark-text-main"
           }`}
         >
           {row.type === "deposit" ? "+" : row.type === "withdrawal" ? "-" : ""}$
@@ -182,7 +186,9 @@ export default function TransactionsPage() {
       key: "date",
       header: "Date",
       render: (value) => (
-        <span className="text-sm text-text-muted">{String(value)}</span>
+        <span className="text-sm text-text-muted dark:text-dark-text-muted">
+          {String(value)}
+        </span>
       ),
     },
   ];
@@ -192,8 +198,10 @@ export default function TransactionsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text-main">Transactions</h1>
-          <p className="mt-1 text-text-muted">
+          <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+            Transactions
+          </h1>
+          <p className="mt-1 text-text-muted dark:text-dark-text-muted">
             View and manage all transactions
           </p>
         </div>

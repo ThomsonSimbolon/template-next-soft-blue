@@ -115,19 +115,22 @@ export default function LoginPage() {
               className="
                 w-4 h-4
                 rounded
-                border-border-soft
+                border-border-soft dark:border-dark-border
+                bg-white dark:bg-dark-bg-surface
                 text-primary
-                focus:ring-primary focus:ring-offset-0
+                focus:ring-primary focus:ring-offset-0 dark:focus:ring-offset-dark-bg-card
                 cursor-pointer
               "
             />
-            <span className="text-sm text-text-body">Remember me</span>
+            <span className="text-sm text-text-body dark:text-dark-text-body">
+              Remember me
+            </span>
           </label>
 
           {/* Forgot Password Link */}
           <Link
             href="/forgot-password"
-            className="text-sm text-primary hover:text-primary-hover hover:underline transition-colors"
+            className="text-sm text-primary dark:text-dark-primary-hover hover:text-primary-hover dark:hover:text-primary hover:underline transition-colors"
           >
             Forgot password?
           </Link>
@@ -140,10 +143,10 @@ export default function LoginPage() {
       {/* Divider */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-border-soft" />
+          <div className="w-full border-t border-border-soft dark:border-dark-border" />
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-4 bg-white text-text-muted">
+          <span className="px-4 bg-white dark:bg-dark-bg-card text-text-muted dark:text-dark-text-muted">
             Don&apos;t have an account?
           </span>
         </div>

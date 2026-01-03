@@ -8,6 +8,7 @@ import type { ButtonProps } from "@/types";
  *
  * A versatile button component supporting multiple variants, sizes, and states.
  * Follows the design system color palette strictly.
+ * Supports light and dark modes.
  */
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -32,6 +33,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       font-medium rounded-lg
       transition-all duration-200
       focus:outline-none focus:ring-2 focus:ring-offset-2
+      dark:focus:ring-offset-dark-bg-surface
       disabled:opacity-50 disabled:cursor-not-allowed
       min-h-[44px]
     `;
@@ -40,7 +42,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const variantStyles: Record<string, string> = {
       primary: `
         bg-primary text-white
-        hover:bg-primary-hover
+        hover:bg-primary-hover dark:hover:bg-dark-primary-hover
         focus:ring-primary
         active:bg-primary-hover
       `,
@@ -57,15 +59,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         active:bg-red-700
       `,
       ghost: `
-        bg-transparent text-text-body
-        hover:bg-bg-soft
+        bg-transparent text-text-body dark:text-dark-text-body
+        hover:bg-bg-soft dark:hover:bg-dark-border
         focus:ring-primary
-        active:bg-bg-soft
+        active:bg-bg-soft dark:active:bg-dark-border
       `,
       outline: `
-        bg-transparent text-primary
-        border-2 border-primary
-        hover:bg-primary hover:text-white
+        bg-transparent text-primary dark:text-dark-primary-hover
+        border-2 border-primary dark:border-dark-primary-hover
+        hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white
         focus:ring-primary
         active:bg-primary-hover active:text-white
       `,

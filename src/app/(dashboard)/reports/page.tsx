@@ -97,8 +97,12 @@ export default function ReportsPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text-main">Reports</h1>
-          <p className="mt-1 text-text-muted">Generate and download reports</p>
+          <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+            Reports
+          </h1>
+          <p className="mt-1 text-text-muted dark:text-dark-text-muted">
+            Generate and download reports
+          </p>
         </div>
         <Button variant="primary">Generate Report</Button>
       </div>
@@ -131,7 +135,7 @@ export default function ReportsPage() {
             key={index}
             className="
               flex items-center gap-4 p-4
-              bg-white rounded-xl border border-border-soft
+              bg-white dark:bg-dark-bg-card rounded-xl border border-border-soft dark:border-dark-border
               hover:border-primary hover:shadow-card
               transition-all duration-200
               text-left
@@ -142,7 +146,9 @@ export default function ReportsPage() {
             >
               {action.icon}
             </div>
-            <span className="font-medium text-text-main">{action.label}</span>
+            <span className="font-medium text-text-main dark:text-dark-text-main">
+              {action.label}
+            </span>
           </button>
         ))}
       </div>
@@ -155,7 +161,7 @@ export default function ReportsPage() {
               key={report.id}
               className="
                 flex flex-col sm:flex-row sm:items-center justify-between
-                p-4 bg-bg-soft rounded-lg
+                p-4 bg-bg-soft dark:bg-dark-border rounded-lg
                 gap-4
               "
             >
@@ -168,13 +174,15 @@ export default function ReportsPage() {
                   {typeConfig[report.type].icon}
                 </div>
                 <div>
-                  <h3 className="font-medium text-text-main">{report.name}</h3>
+                  <h3 className="font-medium text-text-main dark:text-dark-text-main">
+                    {report.name}
+                  </h3>
                   <div className="flex items-center gap-3 mt-1">
-                    <span className="flex items-center gap-1 text-xs text-text-muted">
+                    <span className="flex items-center gap-1 text-xs text-text-muted dark:text-dark-text-muted">
                       <CalendarIcon className="w-3 h-3" />
                       {report.date}
                     </span>
-                    <span className="text-xs text-text-muted">
+                    <span className="text-xs text-text-muted dark:text-dark-text-muted">
                       {report.size}
                     </span>
                   </div>

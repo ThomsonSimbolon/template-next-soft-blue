@@ -5,6 +5,7 @@ import type { CardProps, Size } from "@/types";
  *
  * A flexible card container with optional header and footer sections.
  * Server component - no client-side JavaScript needed.
+ * Supports light and dark modes.
  */
 
 const paddingStyles: Record<Size, string> = {
@@ -27,9 +28,9 @@ export default function Card({
   return (
     <div
       className={`
-        bg-white rounded-xl
-        border border-border-soft
-        shadow-card
+        bg-white dark:bg-dark-bg-card rounded-xl
+        border border-border-soft dark:border-dark-border
+        shadow-card dark:shadow-none
         ${className}
       `.trim()}
     >
@@ -39,17 +40,17 @@ export default function Card({
           className={`
             flex items-start justify-between gap-4
             px-6 py-4
-            border-b border-border-soft
+            border-b border-border-soft dark:border-dark-border
           `}
         >
           <div className="min-w-0 flex-1">
             {title && (
-              <h3 className="text-lg font-semibold text-text-main truncate">
+              <h3 className="text-lg font-semibold text-text-main dark:text-dark-text-main truncate">
                 {title}
               </h3>
             )}
             {subtitle && (
-              <p className="mt-1 text-sm text-text-muted truncate">
+              <p className="mt-1 text-sm text-text-muted dark:text-dark-text-muted truncate">
                 {subtitle}
               </p>
             )}
@@ -66,8 +67,8 @@ export default function Card({
         <div
           className={`
             px-6 py-4
-            border-t border-border-soft
-            bg-bg-soft/50 rounded-b-xl
+            border-t border-border-soft dark:border-dark-border
+            bg-bg-soft/50 dark:bg-dark-border/50 rounded-b-xl
           `}
         >
           {footer}

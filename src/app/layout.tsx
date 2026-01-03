@@ -23,14 +23,39 @@ export const metadata: Metadata = {
   authors: [{ name: "Admin Dashboard Team" }],
 };
 
+/**
+ * Theme initialization script
+ *
+ * This inline script runs before React hydration to prevent
+ * flash of wrong theme. It reads from localStorage and applies
+ * the dark class to <html> if needed.
+ */
+const themeInitScript = `
+  (function() {
+    try {
+      var theme = localStorage.getItem('theme');
+      if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    } catch (e) {}
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="font-sans antialiased bg-bg-main dark:bg-dark-bg-main text-text-body dark:text-dark-text-body transition-colors duration-200">
+        {children}
+      </body>
     </html>
   );
 }

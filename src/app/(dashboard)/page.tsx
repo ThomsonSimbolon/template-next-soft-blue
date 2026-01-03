@@ -155,8 +155,12 @@ export default function DashboardPage() {
             {row.name.charAt(0)}
           </div>
           <div>
-            <p className="font-medium text-text-main">{row.name}</p>
-            <p className="text-xs text-text-muted">{row.email}</p>
+            <p className="font-medium text-text-main dark:text-dark-text-main">
+              {row.name}
+            </p>
+            <p className="text-xs text-text-muted dark:text-dark-text-muted">
+              {row.email}
+            </p>
           </div>
         </div>
       ),
@@ -165,7 +169,9 @@ export default function DashboardPage() {
       key: "role",
       header: "Role",
       render: (value) => (
-        <span className="text-sm text-text-body">{String(value)}</span>
+        <span className="text-sm text-text-body dark:text-dark-text-body">
+          {String(value)}
+        </span>
       ),
     },
     {
@@ -191,7 +197,9 @@ export default function DashboardPage() {
       key: "createdAt",
       header: "Joined",
       render: (value) => (
-        <span className="text-sm text-text-muted">{String(value)}</span>
+        <span className="text-sm text-text-muted dark:text-dark-text-muted">
+          {String(value)}
+        </span>
       ),
     },
     {
@@ -237,8 +245,8 @@ export default function DashboardPage() {
                   w-8 h-8
                   flex items-center justify-center
                   rounded-lg
-                  text-text-muted
-                  hover:bg-bg-soft hover:text-text-body
+                  text-text-muted dark:text-dark-text-muted
+                  hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-body dark:hover:text-dark-text-body
                   transition-colors duration-150
                 "
               >
@@ -259,7 +267,7 @@ export default function DashboardPage() {
       key: "id",
       header: "ID",
       render: (value) => (
-        <span className="font-mono text-sm text-text-muted">
+        <span className="font-mono text-sm text-text-muted dark:text-dark-text-muted">
           {String(value)}
         </span>
       ),
@@ -270,7 +278,9 @@ export default function DashboardPage() {
       render: (_, row) => (
         <div className="flex items-center gap-2">
           {currencyIcons[row.currency]}
-          <span className="text-sm text-text-body">{row.description}</span>
+          <span className="text-sm text-text-body dark:text-dark-text-body">
+            {row.description}
+          </span>
         </div>
       ),
     },
@@ -296,9 +306,11 @@ export default function DashboardPage() {
       header: "Amount",
       align: "right",
       render: (value, row) => (
-        <span className="font-semibold text-text-main">
+        <span className="font-semibold text-text-main dark:text-dark-text-main">
           ${Number(value).toLocaleString("en-US", { minimumFractionDigits: 2 })}
-          <span className="ml-1 text-xs text-text-muted">{row.currency}</span>
+          <span className="ml-1 text-xs text-text-muted dark:text-dark-text-muted">
+            {row.currency}
+          </span>
         </span>
       ),
     },
@@ -325,7 +337,9 @@ export default function DashboardPage() {
       key: "date",
       header: "Date",
       render: (value) => (
-        <span className="text-sm text-text-muted">{String(value)}</span>
+        <span className="text-sm text-text-muted dark:text-dark-text-muted">
+          {String(value)}
+        </span>
       ),
     },
   ];
@@ -335,8 +349,10 @@ export default function DashboardPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text-main">Dashboard</h1>
-          <p className="mt-1 text-text-muted">
+          <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+            Dashboard
+          </h1>
+          <p className="mt-1 text-text-muted dark:text-dark-text-muted">
             Welcome back! Here&apos;s what&apos;s happening today.
           </p>
         </div>
@@ -405,52 +421,70 @@ export default function DashboardPage() {
           <Card title="Portfolio Overview">
             <div className="space-y-4">
               {/* Bitcoin */}
-              <div className="flex items-center justify-between p-3 bg-bg-soft rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-bg-soft dark:bg-dark-border rounded-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-warning/10 rounded-lg flex items-center justify-center">
                     <FaBitcoin className="w-5 h-5 text-warning" />
                   </div>
                   <div>
-                    <p className="font-medium text-text-main">Bitcoin</p>
-                    <p className="text-xs text-text-muted">BTC</p>
+                    <p className="font-medium text-text-main dark:text-dark-text-main">
+                      Bitcoin
+                    </p>
+                    <p className="text-xs text-text-muted dark:text-dark-text-muted">
+                      BTC
+                    </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-text-main">$42,150.00</p>
+                  <p className="font-semibold text-text-main dark:text-dark-text-main">
+                    $42,150.00
+                  </p>
                   <p className="text-xs text-success">+2.34%</p>
                 </div>
               </div>
 
               {/* Ethereum */}
-              <div className="flex items-center justify-between p-3 bg-bg-soft rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-bg-soft dark:bg-dark-border rounded-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center">
                     <FaEthereum className="w-5 h-5 text-secondary" />
                   </div>
                   <div>
-                    <p className="font-medium text-text-main">Ethereum</p>
-                    <p className="text-xs text-text-muted">ETH</p>
+                    <p className="font-medium text-text-main dark:text-dark-text-main">
+                      Ethereum
+                    </p>
+                    <p className="text-xs text-text-muted dark:text-dark-text-muted">
+                      ETH
+                    </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-text-main">$2,280.50</p>
+                  <p className="font-semibold text-text-main dark:text-dark-text-main">
+                    $2,280.50
+                  </p>
                   <p className="text-xs text-error">-1.15%</p>
                 </div>
               </div>
 
               {/* Ripple */}
-              <div className="flex items-center justify-between p-3 bg-bg-soft rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-bg-soft dark:bg-dark-border rounded-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-text-muted/10 rounded-lg flex items-center justify-center">
-                    <SiRipple className="w-5 h-5 text-text-muted" />
+                    <SiRipple className="w-5 h-5 text-text-muted dark:text-dark-text-muted" />
                   </div>
                   <div>
-                    <p className="font-medium text-text-main">Ripple</p>
-                    <p className="text-xs text-text-muted">XRP</p>
+                    <p className="font-medium text-text-main dark:text-dark-text-main">
+                      Ripple
+                    </p>
+                    <p className="text-xs text-text-muted dark:text-dark-text-muted">
+                      XRP
+                    </p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-text-main">$0.62</p>
+                  <p className="font-semibold text-text-main dark:text-dark-text-main">
+                    $0.62
+                  </p>
                   <p className="text-xs text-success">+0.85%</p>
                 </div>
               </div>
@@ -461,10 +495,14 @@ export default function DashboardPage() {
           <Card title="Activity Summary">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-text-muted">Completed Tasks</span>
-                <span className="font-semibold text-text-main">24/30</span>
+                <span className="text-sm text-text-muted dark:text-dark-text-muted">
+                  Completed Tasks
+                </span>
+                <span className="font-semibold text-text-main dark:text-dark-text-main">
+                  24/30
+                </span>
               </div>
-              <div className="w-full bg-bg-soft rounded-full h-2">
+              <div className="w-full bg-bg-soft dark:bg-dark-border rounded-full h-2">
                 <div
                   className="bg-primary h-2 rounded-full"
                   style={{ width: "80%" }}
@@ -472,10 +510,14 @@ export default function DashboardPage() {
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-sm text-text-muted">Storage Used</span>
-                <span className="font-semibold text-text-main">7.2/10 GB</span>
+                <span className="text-sm text-text-muted dark:text-dark-text-muted">
+                  Storage Used
+                </span>
+                <span className="font-semibold text-text-main dark:text-dark-text-main">
+                  7.2/10 GB
+                </span>
               </div>
-              <div className="w-full bg-bg-soft rounded-full h-2">
+              <div className="w-full bg-bg-soft dark:bg-dark-border rounded-full h-2">
                 <div
                   className="bg-secondary h-2 rounded-full"
                   style={{ width: "72%" }}
@@ -483,12 +525,14 @@ export default function DashboardPage() {
               </div>
 
               <div className="flex items-center justify-between">
-                <span className="text-sm text-text-muted">API Calls</span>
-                <span className="font-semibold text-text-main">
+                <span className="text-sm text-text-muted dark:text-dark-text-muted">
+                  API Calls
+                </span>
+                <span className="font-semibold text-text-main dark:text-dark-text-main">
                   8,432/10,000
                 </span>
               </div>
-              <div className="w-full bg-bg-soft rounded-full h-2">
+              <div className="w-full bg-bg-soft dark:bg-dark-border rounded-full h-2">
                 <div
                   className="bg-accent h-2 rounded-full"
                   style={{ width: "84%" }}

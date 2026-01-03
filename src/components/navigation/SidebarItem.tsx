@@ -7,7 +7,7 @@ import type { SidebarItemProps } from "@/types";
  * SidebarItem Component
  *
  * A single navigation item in the sidebar.
- * Supports active state and collapsed mode.
+ * Supports active state, collapsed mode, and dark mode.
  */
 export default function SidebarItem({
   item,
@@ -28,7 +28,7 @@ export default function SidebarItem({
         ${
           isActive
             ? "bg-primary text-white shadow-sm"
-            : "text-text-body hover:bg-bg-soft hover:text-text-main"
+            : "text-text-body dark:text-dark-text-body hover:bg-bg-soft dark:hover:bg-dark-border hover:text-text-main dark:hover:text-dark-text-main"
         }
       `}
       title={isCollapsed ? item.label : undefined}
@@ -38,7 +38,9 @@ export default function SidebarItem({
         className={`
           flex-shrink-0 w-5 h-5
           ${
-            isActive ? "text-white" : "text-text-muted group-hover:text-primary"
+            isActive
+              ? "text-white"
+              : "text-text-muted dark:text-dark-text-muted group-hover:text-primary dark:group-hover:text-dark-primary-hover"
           }
         `}
       >
@@ -61,7 +63,9 @@ export default function SidebarItem({
             rounded-full px-1.5
             text-xs font-semibold
             ${
-              isActive ? "bg-white/20 text-white" : "bg-primary/10 text-primary"
+              isActive
+                ? "bg-white/20 text-white"
+                : "bg-primary/10 dark:bg-primary/20 text-primary dark:text-dark-primary-hover"
             }
           `}
         >
@@ -75,7 +79,7 @@ export default function SidebarItem({
           className="
             absolute left-full ml-3
             px-3 py-2
-            bg-text-main text-white text-sm
+            bg-text-main dark:bg-dark-bg-surface text-white dark:text-dark-text-main text-sm
             rounded-lg
             whitespace-nowrap
             opacity-0 invisible
@@ -83,11 +87,12 @@ export default function SidebarItem({
             transition-all duration-200
             z-50
             shadow-dropdown
+            border dark:border-dark-border
           "
         >
           {item.label}
           {item.badge && (
-            <span className="ml-2 px-1.5 py-0.5 bg-primary rounded text-xs">
+            <span className="ml-2 px-1.5 py-0.5 bg-primary rounded text-xs text-white">
               {item.badge}
             </span>
           )}

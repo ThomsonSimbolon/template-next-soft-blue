@@ -110,8 +110,12 @@ export default function CustomersPage() {
             {row.name.charAt(0)}
           </div>
           <div>
-            <p className="font-medium text-text-main">{row.name}</p>
-            <p className="text-sm text-text-muted">{row.email}</p>
+            <p className="font-medium text-text-main dark:text-dark-text-main">
+              {row.name}
+            </p>
+            <p className="text-sm text-text-muted dark:text-dark-text-muted">
+              {row.email}
+            </p>
           </div>
         </div>
       ),
@@ -154,7 +158,9 @@ export default function CustomersPage() {
       key: "createdAt",
       header: "Joined",
       render: (value) => (
-        <span className="text-sm text-text-muted">{String(value)}</span>
+        <span className="text-sm text-text-muted dark:text-dark-text-muted">
+          {String(value)}
+        </span>
       ),
     },
   ];
@@ -164,8 +170,12 @@ export default function CustomersPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-text-main">Customers</h1>
-          <p className="mt-1 text-text-muted">Manage your customer accounts</p>
+          <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+            Customers
+          </h1>
+          <p className="mt-1 text-text-muted dark:text-dark-text-muted">
+            Manage your customer accounts
+          </p>
         </div>
         <Button variant="primary" leftIcon={<PlusIcon className="w-5 h-5" />}>
           Add Customer
@@ -177,7 +187,7 @@ export default function CustomersPage() {
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Search */}
           <div className="relative flex-1">
-            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
+            <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted dark:text-dark-text-muted" />
             <input
               type="text"
               placeholder="Search customers..."
@@ -185,11 +195,11 @@ export default function CustomersPage() {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="
                 w-full pl-10 pr-4 py-2.5
-                bg-bg-soft
-                border border-border-soft
+                bg-bg-soft dark:bg-dark-border
+                border border-border-soft dark:border-dark-border
                 rounded-lg
-                text-sm text-text-body
-                placeholder:text-text-muted
+                text-sm text-text-body dark:text-dark-text-body
+                placeholder:text-text-muted dark:placeholder:text-dark-text-muted
                 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary
               "
             />
@@ -212,7 +222,7 @@ export default function CustomersPage() {
 
       {/* Pagination Placeholder */}
       <div className="flex items-center justify-between">
-        <p className="text-sm text-text-muted">
+        <p className="text-sm text-text-muted dark:text-dark-text-muted">
           Showing {filteredCustomers.length} of {customers.length} customers
         </p>
         <div className="flex gap-2">

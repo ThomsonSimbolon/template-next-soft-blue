@@ -10,6 +10,8 @@
 
   body {
     @apply bg-bg-main text-text-body;
+    @apply dark:bg-dark-bg-main dark:text-dark-text-body;
+    @apply transition-colors duration-200;
   }
 
   /* Custom scrollbar for webkit browsers */
@@ -19,10 +21,22 @@
 
   ::-webkit-scrollbar-track {
     @apply bg-bg-soft rounded-full;
+    @apply dark:bg-dark-border;
   }
 
   ::-webkit-scrollbar-thumb {
     @apply bg-border-soft rounded-full hover:bg-text-muted;
+    @apply dark:bg-dark-text-muted/30 dark:hover:bg-dark-text-muted/50;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #e2e8f0 #eef2ff;
+  }
+
+  .dark * {
+    scrollbar-color: #94a3b8 #1e293b;
   }
 }
 
@@ -30,16 +44,19 @@
   /* Focus ring utility for accessibility */
   .focus-ring {
     @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2;
+    @apply dark:focus:ring-offset-dark-bg-surface;
   }
 
   /* Card base styles */
   .card-base {
     @apply bg-white rounded-xl border border-border-soft shadow-card;
+    @apply dark:bg-dark-bg-card dark:border-dark-border dark:shadow-none;
   }
 
   /* Interactive card */
   .card-interactive {
     @apply card-base transition-shadow duration-200 hover:shadow-dropdown;
+    @apply dark:hover:border-dark-text-muted/30;
   }
 }
 

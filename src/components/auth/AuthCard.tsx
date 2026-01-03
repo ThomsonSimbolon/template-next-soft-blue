@@ -4,8 +4,9 @@ import { ReactNode } from "react";
  * AuthCard Component
  *
  * A card container for authentication forms.
- * Provides consistent styling with white background,
- * subtle shadow, and rounded corners.
+ * Provides consistent styling with white/dark background,
+ * subtle shadow/border, and rounded corners.
+ * Supports light and dark modes.
  */
 
 interface AuthCardProps {
@@ -19,11 +20,12 @@ export default function AuthCard({ children, title, subtitle }: AuthCardProps) {
     <div
       className="
         w-full max-w-md
-        bg-white
+        bg-white dark:bg-dark-bg-card
         rounded-xl
-        border border-border-soft
-        shadow-sm
+        border border-border-soft dark:border-dark-border
+        shadow-sm dark:shadow-none
         p-6 sm:p-8
+        transition-colors duration-200
       "
     >
       {/* Header */}
@@ -45,10 +47,16 @@ export default function AuthCard({ children, title, subtitle }: AuthCardProps) {
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl font-bold text-text-main">{title}</h1>
+        <h1 className="text-2xl font-bold text-text-main dark:text-dark-text-main">
+          {title}
+        </h1>
 
         {/* Subtitle */}
-        {subtitle && <p className="mt-2 text-sm text-text-muted">{subtitle}</p>}
+        {subtitle && (
+          <p className="mt-2 text-sm text-text-muted dark:text-dark-text-muted">
+            {subtitle}
+          </p>
+        )}
       </div>
 
       {/* Content */}

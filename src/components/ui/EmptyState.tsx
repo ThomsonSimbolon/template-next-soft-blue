@@ -6,6 +6,7 @@ import type { EmptyStateProps } from "@/types";
  *
  * Displays a friendly empty state message when no data is available.
  * Server component - no client-side JavaScript needed.
+ * Supports light and dark modes.
  */
 export default function EmptyState({
   icon,
@@ -29,8 +30,8 @@ export default function EmptyState({
           w-16 h-16
           flex items-center justify-center
           rounded-full
-          bg-bg-soft
-          text-text-muted
+          bg-bg-soft dark:bg-dark-border
+          text-text-muted dark:text-dark-text-muted
           mb-4
         "
       >
@@ -38,11 +39,15 @@ export default function EmptyState({
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-text-main">{title}</h3>
+      <h3 className="text-lg font-semibold text-text-main dark:text-dark-text-main">
+        {title}
+      </h3>
 
       {/* Description */}
       {description && (
-        <p className="mt-2 text-sm text-text-muted max-w-sm">{description}</p>
+        <p className="mt-2 text-sm text-text-muted dark:text-dark-text-muted max-w-sm">
+          {description}
+        </p>
       )}
 
       {/* Action */}
